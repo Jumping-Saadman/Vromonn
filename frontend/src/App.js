@@ -1,22 +1,24 @@
-import React from 'react';
-import { MDBBtn, MDBContainer } from 'mdb-react-ui-kit';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
+
+// pages & components
+import Home from './Pages/Home';
 import Header from './Component/Navbar/Header';
-import Banner from './Component/Banner/Banner';
-import Packages from './Component/Packages/Packages';
-import Login from './Component/Login/Login';
-import Footer from './Component/Footer/Footer';
-import AboutUs from './Component/AboutUs/AboutUs';
+
 function App() {
   return (
-    <React.Fragment>
+    <div className="App">
+      <BrowserRouter>
       <Header />
-      <Banner />
-      <Packages />
-      <Login />
-      <AboutUs />
-      <Footer />
-
-    </React.Fragment>
+        <div className="pages">
+          <Routes>
+            <Route 
+              path="/"
+              element={<Home />}
+            />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </div>
   );
 }
 

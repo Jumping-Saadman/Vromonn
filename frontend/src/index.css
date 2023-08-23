@@ -9,3 +9,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.pages {
+  max-width: 1400px;
+  /* padding: 20px; */
+  margin: 0 auto;
+}
