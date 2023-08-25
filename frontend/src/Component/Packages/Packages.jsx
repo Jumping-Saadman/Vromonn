@@ -11,7 +11,22 @@ import {
 } from 'mdb-react-ui-kit';
 import bandarban from '../../Bandarban.jpg'
 import sajek from '../../Sajek.jpg'
-export default function Packages() {
+
+// const WorkoutDetails = ({ workout }) => {
+//     return (
+//         <div className='package-details'>
+//             <h4>{workout.title}</h4>
+//             <p><strong>{workout.description}</strong></p>
+//             <p>{workout.price}</p>
+//             <p>{workout.type}</p>
+//             <p>{workout.createdAt}</p>
+//         </div>
+//     )
+// };
+
+// export default WorkoutDetails;
+
+export default function Packages({ workout }) {
     return (
         <MDBContainer id="pack">
             <h1 class="m-5 text-center">Our Packages</h1>
@@ -25,15 +40,15 @@ export default function Packages() {
                             </a>
                         </MDBRipple>
                         <MDBCardBody>
-                            <MDBCardTitle>Saint Martin</MDBCardTitle>
+                            <MDBCardTitle>{workout.title}</MDBCardTitle>
                             <MDBCardText>
-                                St. Martin is generally known as “Narikel Zinzira” in Bengali, means 'Coconut Island' and this is the only coral reef island in Bangladesh. It is a small island in the north eastern part of the Bay of Bengal, created the southernmost part of our country.
+                                {workout.description}
                             </MDBCardText>
-                            <MDBBtn href='#'><MDBIcon fas icon="shopping-cart" /> Book now</MDBBtn>
+                            <MDBBtn href='#'><MDBIcon fas icon="shopping-cart" /> Book now {workout.price} BDT</MDBBtn>
                         </MDBCardBody>
                     </MDBCard>
                 </MDBCol>
-                <MDBCol md='4'>
+                {/* <MDBCol md='4'>
                     <MDBCard className='hover-shadow'>
                         <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
                             <MDBCardImage src={bandarban} fluid alt='...' />
@@ -66,7 +81,7 @@ export default function Packages() {
                             <MDBBtn href='#'><MDBIcon fas icon="shopping-cart" /> Book now</MDBBtn>
                         </MDBCardBody>
                     </MDBCard>
-                </MDBCol>
+                </MDBCol> */}
             </MDBRow>
         </MDBContainer>
     );

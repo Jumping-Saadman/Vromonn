@@ -1,4 +1,5 @@
 {
+  "proxy": "http://localhost:4000",
   "name": "mdb-react-template",
   "version": "6.2.0",
   "description": "template for mdb-react-ui-kit",
