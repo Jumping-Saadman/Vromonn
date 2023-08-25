@@ -12,20 +12,6 @@ import {
 import bandarban from '../../Bandarban.jpg'
 import sajek from '../../Sajek.jpg'
 
-// const WorkoutDetails = ({ workout }) => {
-//     return (
-//         <div className='package-details'>
-//             <h4>{workout.title}</h4>
-//             <p><strong>{workout.description}</strong></p>
-//             <p>{workout.price}</p>
-//             <p>{workout.type}</p>
-//             <p>{workout.createdAt}</p>
-//         </div>
-//     )
-// };
-
-// export default WorkoutDetails;
-
 export default function Packages({ workout }) {
     return (
         <MDBContainer id="pack">
@@ -44,7 +30,7 @@ export default function Packages({ workout }) {
                             <MDBCardText>
                                 {workout.description}
                             </MDBCardText>
-                            <MDBBtn href='#'><MDBIcon fas icon="shopping-cart" /> Book now {workout.price} BDT</MDBBtn>
+                            <MDBBtn href='/product'><MDBIcon fas icon="shopping-cart" /> Book now {workout.price} BDT</MDBBtn>
                         </MDBCardBody>
                     </MDBCard>
                 </MDBCol>

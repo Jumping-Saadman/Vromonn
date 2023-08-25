@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useAuth0 } from "@auth0/auth0-react";
 import {
     MDBContainer,
     MDBNavbar,
@@ -16,8 +17,10 @@ import {
     MDBCollapse,
 } from 'mdb-react-ui-kit';
 import logo from '../../Vlogo.png'
+
 export default function Header() {
     const [showBasic, setShowBasic] = useState(false);
+    const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
 
     return (
         <MDBNavbar sticky expand='lg' light bgColor='white'>
@@ -46,19 +49,37 @@ export default function Header() {
                 <MDBCollapse navbar show={showBasic}>
                     <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
                         <MDBNavbarItem>
-                            <MDBNavbarLink active aria-current='page' href='#'>
-                                Home
-                            </MDBNavbarLink>
+                            <MDBNavbarLink active aria-current='page' href='/'>Home</MDBNavbarLink>
                         </MDBNavbarItem>
                         <MDBNavbarItem>
                             <MDBNavbarLink href='#pack'>Packages</MDBNavbarLink>
                         </MDBNavbarItem>
                         <MDBNavbarItem>
-                            <MDBNavbarLink href='aboutus'>About Us</MDBNavbarLink>
+                            <MDBNavbarLink href='#aboutus'>About Us</MDBNavbarLink>
+                        </MDBNavbarItem>
+                        {/* <MDBNavbarItem>
+                            <MDBNavbarLink href='#login'>Login</MDBNavbarLink>
+                        </MDBNavbarItem> */}
+                        <MDBNavbarItem>
+                            <MDBNavbarLink href='/product'>Product Details</MDBNavbarLink>
                         </MDBNavbarItem>
                         <MDBNavbarItem>
-                            <MDBNavbarLink href='#login'>Login</MDBNavbarLink>
+                            <MDBNavbarLink href='/PackageForm'>Package Form</MDBNavbarLink>
                         </MDBNavbarItem>
+
+                        {
+                            isAuthenticated ?(
+
+                            <li>
+                        <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}> Log Out
+                        </button>
+                        </li>
+                            ) : (<li>
+                                <button  onClick={() => loginWithRedirect()}>Log In</button>
+                           </li>
+                                )
+                        }
+
                     </MDBNavbarNav>
 
                     <form className='d-flex input-group w-auto'>
