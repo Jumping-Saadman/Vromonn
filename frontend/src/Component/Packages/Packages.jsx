@@ -11,8 +11,21 @@ import {
 } from 'mdb-react-ui-kit';
 import bandarban from '../../Bandarban.jpg'
 import sajek from '../../Sajek.jpg'
+// import useWor
 
 export default function Packages({ workout }) {
+
+    const handleClick = async () => {
+        const response = await fetch('/api/workouts/' + workout._id, {
+            method: 'DELETE'
+        });
+        const json = await response.json();
+
+        if (response.ok) {
+
+        }
+    };
+
     return (
         <MDBContainer id="pack">
             <h1 class="m-5 text-center">Our Packages</h1>
@@ -28,7 +41,9 @@ export default function Packages({ workout }) {
                         <MDBCardBody>
                             <MDBCardTitle>{workout.title}</MDBCardTitle>
                             <MDBCardText>
-                                {workout.description}
+                                <p>{workout.description}</p>
+                                <p><small>Created at:{workout.createdAt}</small></p>
+                                <span onClick={handleClick}>delete</span>
                             </MDBCardText>
                             <MDBBtn href='/product'><MDBIcon fas icon="shopping-cart" /> Book now {workout.price} BDT</MDBBtn>
                         </MDBCardBody>
